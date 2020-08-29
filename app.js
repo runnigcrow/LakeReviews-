@@ -11,7 +11,7 @@ const Lake 			= require("./models/lake");
 const Comment 		= require("./models/comment");
 const User			= require("./models/user");
 const seedDB 		= require("./seeds.js");
-
+const db 		 	= require("./dbconfig.js");
 //REQUIRING ROUTES
 const commentRoutes = require("./routes/comments.js");
 const lakeRoutes 	= require("./routes/lakes.js");
@@ -19,18 +19,20 @@ const indexRoutes 	= require("./routes/index.js");
 
 // Database connect 
 
-// external database  mongoose.connect("mongodb+srv://LRAdmin:LcUc3kSEh4inv784@cluster0.kdnux.mongodb.net/lake_reviews?retryWrites=true&w=majority", {
-//   	useNewUrlParser: true,
-//   	CreateIndex:true,
-// }).then(() => console.log('Connected to DB!')).catch(error => console.log(error.message));
+// external database
+var dbKey = db();
+mongoose.connect("mongodb+srv://"+dbKey+"/blogDB?retryWrites=true&w=majority", {
+  	useNewUrlParser: true,
+  	useUnifiedTopology: true,
+}).then(() => console.log('Connected to DB!')).catch(error => console.log(error.message));
 
-mongoose.connect('mongodb://localhost:27017/lake_reviews', { //add database and connect to mongoose
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-.then(() => console.log('Connected to DB!'))
-.catch(err => console.log(err.message));
-mongoose.set('useFindAndModify', false);
+// mongoose.connect('mongodb://localhost:27017/lake_reviews', { //add database and connect to mongoose
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// })
+// .then(() => console.log('Connected to DB!'))
+// .catch(err => console.log(err.message));
+// mongoose.set('useFindAndModify', false);
 
 //APP PACKAGE SETTINGS
 app.use(bodyParser.urlencoded({extended: true}));
@@ -38,7 +40,7 @@ app.use(express.static(__dirname + "/public"));// tells express to serve us the 
 app.set("view engine","ejs");
 app.use(methodOverride("_method"));
 app.use(flash());
-//seedDB();
+seedDB();
 
 //PASPORT CONFIG
 app.use(require("express-session")({
@@ -65,6 +67,7 @@ app.use("/lakes",lakeRoutes);
 app.use("/lakes/:id/comments",commentRoutes);
 
 
-app.listen(3000,function(){
-	console.log("Lake Review server is listening !")
+var port = process.env.PORT || 3000;
+app.listen(port, function () {
+  console.log("Server Has Started!");
 });
