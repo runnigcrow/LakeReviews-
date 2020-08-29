@@ -21,7 +21,7 @@ const indexRoutes 	= require("./routes/index.js");
 
 // external database
 var dbKey = db();
-mongoose.connect("mongodb+srv://"+dbKey+"/blogDB?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://"+dbKey+"/LakeReviewsDev?retryWrites=true&w=majority", {
   	useNewUrlParser: true,
   	useUnifiedTopology: true,
 }).then(() => console.log('Connected to DB!')).catch(error => console.log(error.message));
