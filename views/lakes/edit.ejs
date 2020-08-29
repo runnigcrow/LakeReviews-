@@ -1,0 +1,27 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+	<div class="row my-5">
+		
+		<div class="w-50 mx-auto m-3 p-4 border rounded greenBG">
+			<h1 class="pb-3"><strong> Edit: </strong>'<%=lake.name %>' </h1>
+			<form action="/lakes/<%=lake._id %>?_method=PUT" method="POST">
+				<div class="form-group">
+					<input  type="text" name="lake[name]" value="<%=lake.name%>" class="form-control">
+				</div>
+				<div class="form-group">
+					<input type="url" name="lake[image]" value="<%=lake.image%>" class="form-control">
+				</div>
+				<div class="form-group">
+					<input type="text" name="lake[description]" value="<%=lake.description%>" class="form-control">
+				</div>
+				<div class="mb-2">
+					<button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
+				</div>
+			</form >
+			<a href="/lakes">Go Back</a>
+		</div>
+	</div>
+	
+</div>
+<%- include("../partials/footer") %>

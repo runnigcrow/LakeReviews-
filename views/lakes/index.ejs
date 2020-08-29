@@ -1,0 +1,36 @@
+<%- include("../partials/header") %>
+
+<section id="header" class="jumbotron text-center greenBG">
+        <div class="container rounded shadow-lg  pb-1 pastyG-BG">
+            <h1 class="display-3 ">Welcome to Lake Reviews</h1>
+            <hr>
+            <h3 class="lead ">View our hand picked selection of lakes from all over the world
+			</h3>
+			<p class="pt-3">
+				<a class="btn button_style btn-lg " href="/lakes/new">Add a New Lake</a>
+			</p>
+        </div>
+</section>
+<section id="gallery">
+	<div class="container">
+		<div class="row">
+			<% lakes.forEach((lake)=>{ %>
+			<div class="col-lg-4 col-sm-6 mb-3 ">
+				<div class="card greenBG">
+					<img class="card-img-top embed-responsive-item" src="<%=lake.image %>" alt="Card image cap">
+					<div class="card-body ">
+						<div class="row d-flex justify-content-center">
+							<h4 class="text-center"><%= lake.name %></h4>
+						</div>
+						<div class= "row d-flex justify-content-center">
+							<a href="/lakes/<%=lake._id%>" class="btn button_style btn-sm">More Info</a>
+						</div>
+					    
+					</div>
+				</div>
+			</div>
+			<% }); %>	
+		</div>
+	</div>
+</section>
+<%- include("../partials/footer") %>

@@ -1,0 +1,21 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+	<div class="row my-5">
+		
+		<div class="w-40 mx-auto m-3 p-4 border rounded greenBG">
+			<h1 class="pb-3"> Add a new comment to '<%=lake.name%>' </h1>
+			<form action="/lakes/<%=lake._id%>/comments" method="POST">
+				<div class="form-group">
+					<input required type="text" name="comment[text]" placeholder="Text" class="form-control">
+				</div>
+				<div class="mb-2">
+					<button type="submit" class="btn btn-lg button_style btn-block">Submit</button>
+				</div>
+			</form >
+			<a href="/lakes">Go Back</a>
+		</div>
+	</div>
+	
+</div>
+<%- include("../partials/footer") %>

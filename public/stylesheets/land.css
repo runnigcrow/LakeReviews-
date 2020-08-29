@@ -1,0 +1,118 @@
+body {
+  	background-color: #000;
+	font-family: 'Raleway', sans-serif;
+}
+
+#landing-header {
+  z-index: 0;
+  position: relative;
+  text-align: center;
+  padding-top: 40vh;
+}
+
+#landing-header h1 {
+  color: #fff;
+}
+
+.slideshow { 
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.slideshow li { 
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: -1;
+  animation: imageAnimation 50s linear infinite; 
+}
+
+.slideshow li:nth-child(1) { 
+  background-image: url(https://i.imgur.com/bwuab3U.jpg) 
+}
+.slideshow li:nth-child(2) { 
+  background-image: url(https://i.imgur.com/362SBkT.jpg);
+  animation-delay: 10s; 
+}
+.slideshow li:nth-child(3) { 
+  background-image: url(https://i.imgur.com/tPA5dmz.jpg);
+  animation-delay: 20s; 
+}
+.slideshow li:nth-child(4) { 
+  background-image: url(https://i.imgur.com/VBD58Vp.jpg);
+  animation-delay: 30s; 
+}
+.slideshow li:nth-child(5) { 
+  background-image: url(https://i.imgur.com/uXz1q8b.jpg);
+  animation-delay: 40s; 
+}
+
+.greenBG{
+	background:#87bba2;
+}
+.pastyG-BG{
+	background:	#c9e4ca;
+}
+.button_style{
+	background: #55828b;
+	color:#c9e4ca;
+}
+.button_style:hover{
+	background: #364958;
+	color:#c9e4ca;
+}
+
+#landNav{
+	background: #3b6064;
+	font-family: 'Raleway', sans-serif;
+}
+#landNav .navbar-brand{
+    color: #87bba2;
+    text-transform: uppercase;
+
+}
+#landNav .navbar-brand:hover{
+    color:#364958;
+}
+#landNav .nav-link{
+    color:#87bba2;
+}
+#landNav .nav-link:hover{
+    color:#364958;
+}
+#landNav .navbar-toggler-icon{
+	color:#87bba2;
+}
+
+
+
+@keyframes imageAnimation { 
+  0% { 
+    opacity: 0; 
+    animation-timing-function: ease-in;
+  }
+  10% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  20% {
+    opacity: 1
+  }
+  30% {
+    opacity: 0
+  }
+}
+

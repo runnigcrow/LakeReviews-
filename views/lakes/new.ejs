@@ -1,0 +1,27 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+	<div class="row my-5 ">
+		
+		<div class="w-50 mx-auto m-3 p-4 border rounded greenBG">
+			<h1 class="pb-3"> Create a New Lake Post </h1>
+			<form action="/lakes" method="post">
+				<div class="form-group">
+					<input  type="text" name="name" placeholder="name" class="form-control">
+				</div>
+				<div class="form-group">
+					<input type="url" name="image" placeholder="image url" class="form-control">
+				</div>
+				<div class="form-group">
+					<input type="text" name="description" placeholder="description" class="form-control">
+				</div>
+				<div class="mb-2">
+					<button type="submit" class="btn btn-lg button_style btn-block">Submit</button>
+				</div>
+			</form >
+			<a href="/lakes">Go Back</a>
+		</div>
+	</div>
+	
+</div>
+<%- include("../partials/footer") %>
